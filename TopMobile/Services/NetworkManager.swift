@@ -11,7 +11,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func fetchData<T:Decodable>(url: String, type: T.Type, completion: @escaping(T?, Error?) -> Void) { // TODO: escaping???
+    func fetchData<T:Decodable>(url: String, type: T.Type, completion: @escaping(T?, Error?) -> Void) {
         
         guard let url = URL(string: url)?.setScheme("https") else { return }
         

@@ -18,12 +18,14 @@ class PhonesTableViewCell: UITableViewCell {
     func configure(with phone: Phone) {
         phoneNameLabel.text = phone.phoneName
         hitsLabel.text = String("Score: \(phone.hits)")
-    }
-    
-    func configure(with thumb: String) {
-        guard let url = URL(string: thumb) else { return }
-        guard let imageData = try? Data(contentsOf: url) else { return }
-        phoneImage.image = UIImage(data: imageData)
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: phone.thumbnail ?? "") else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.phoneImage.image = UIImage(data: imageData)
+            }
+        }
     }
     
 }

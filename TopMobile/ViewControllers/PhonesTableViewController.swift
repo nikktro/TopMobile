@@ -30,14 +30,24 @@ class PhonesTableViewController: UITableViewController {
             guard let data = data else { return }
             self.phones = data.data.phones
             
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
             self.phones.forEach {
+                
                 NetworkManager.shared.fetchData(url: $0.detail, type: DetailResponse.self) { data, error in
+                    
                     guard let data = data else { return }
-                    self.details.append(data)
+                    guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == data.data.fullName }) else { return }
+                    self.phones[phoneIndex].thumbnail = data.data.thumbnail
+                    
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        let indexPath = IndexPath(item: phoneIndex, section: 0)
+                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
                     }
                 }
+                
             }
         }
     }
@@ -47,14 +57,13 @@ class PhonesTableViewController: UITableViewController {
 extension PhonesTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return details.count
+        return phones.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "phoneList", for: indexPath) as! PhonesTableViewCell
         
         cell.configure(with: phones[indexPath.row])
-        cell.configure(with: details[indexPath.row].data.thumbnail)
         
         return cell
     }

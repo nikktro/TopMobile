@@ -22,10 +22,11 @@ struct Phone: Decodable {
     let slug: String
     let hits: Int
     let detail: String
+    var thumbnail: String?
     
     enum CodingKeys: String, CodingKey {
         case phoneName = "phone_name"
-        case slug, hits, detail
+        case slug, hits, detail, thumbnail
     }
 }
 
@@ -36,11 +37,23 @@ struct DetailResponse: Decodable {
 
 struct PhoneDetail: Decodable {
     let brand: String
-    let phone_name: String
+    let phoneName: String
     let thumbnail: String
-    let phone_images: [String]
-    let release_date: String
+    let phoneImages: [String]
+    let releaseDate: String
     let dimension: String
     let os: String
     let storage: String
+    
+    var fullName: String {
+        "\(brand) \(phoneName)"
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case phoneName = "phone_name"
+        case phoneImages = "phone_images"
+        case releaseDate = "release_date"
+        case brand, thumbnail, dimension, os, storage
+    }
+    
 }

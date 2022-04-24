@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B134380228136FD60041BAD6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B134380128136FD60041BAD6 /* NetworkManager.swift */; };
+		B134380428137F240041BAD6 /* PhonesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B134380328137F240041BAD6 /* PhonesTableViewCell.swift */; };
 		B1A73DB6280EE3FC00AA681F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DB5280EE3FC00AA681F /* AppDelegate.swift */; };
 		B1A73DB8280EE3FC00AA681F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DB7280EE3FC00AA681F /* SceneDelegate.swift */; };
-		B1A73DBA280EE3FC00AA681F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DB9280EE3FC00AA681F /* ViewController.swift */; };
 		B1A73DBD280EE3FC00AA681F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A73DBB280EE3FC00AA681F /* Main.storyboard */; };
 		B1A73DBF280EE40300AA681F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A73DBE280EE40300AA681F /* Assets.xcassets */; };
 		B1A73DC2280EE40300AA681F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A73DC0280EE40300AA681F /* LaunchScreen.storyboard */; };
+		B1A73DCF280EE63E00AA681F /* PhonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DCE280EE63E00AA681F /* PhonesTableViewController.swift */; };
+		B1A73DD1280FB9EC00AA681F /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DD0280FB9EC00AA681F /* Mobile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B134380128136FD60041BAD6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B134380328137F240041BAD6 /* PhonesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewCell.swift; sourceTree = "<group>"; };
 		B1A73DB2280EE3FC00AA681F /* TopMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A73DB5280EE3FC00AA681F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A73DB7280EE3FC00AA681F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1A73DB9280EE3FC00AA681F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1A73DBC280EE3FC00AA681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1A73DBE280EE40300AA681F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A73DC1280EE40300AA681F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A73DC3280EE40300AA681F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1A73DCE280EE63E00AA681F /* PhonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewController.swift; sourceTree = "<group>"; };
+		B1A73DD0280FB9EC00AA681F /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B134380028136FA90041BAD6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B134380128136FD60041BAD6 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B1A73DA9280EE3FC00AA681F = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +70,58 @@
 		B1A73DB4280EE3FC00AA681F /* TopMobile */ = {
 			isa = PBXGroup;
 			children = (
-				B1A73DB5280EE3FC00AA681F /* AppDelegate.swift */,
-				B1A73DB7280EE3FC00AA681F /* SceneDelegate.swift */,
-				B1A73DB9280EE3FC00AA681F /* ViewController.swift */,
-				B1A73DBB280EE3FC00AA681F /* Main.storyboard */,
-				B1A73DBE280EE40300AA681F /* Assets.xcassets */,
-				B1A73DC0280EE40300AA681F /* LaunchScreen.storyboard */,
-				B1A73DC3280EE40300AA681F /* Info.plist */,
+				B134380028136FA90041BAD6 /* Services */,
+				B1A73DCA280EE4B400AA681F /* Models */,
+				B1A73DCB280EE4E900AA681F /* ViewControllers */,
+				B1A73DCC280EE4F800AA681F /* Storyboards */,
+				B1A73DCD280EE50500AA681F /* Resources */,
+				B1A73DC9280EE4AB00AA681F /* App */,
 			);
 			path = TopMobile;
+			sourceTree = "<group>";
+		};
+		B1A73DC9280EE4AB00AA681F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B1A73DB5280EE3FC00AA681F /* AppDelegate.swift */,
+				B1A73DB7280EE3FC00AA681F /* SceneDelegate.swift */,
+				B1A73DC3280EE40300AA681F /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B1A73DCA280EE4B400AA681F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1A73DD0280FB9EC00AA681F /* Mobile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1A73DCB280EE4E900AA681F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1A73DCE280EE63E00AA681F /* PhonesTableViewController.swift */,
+				B134380328137F240041BAD6 /* PhonesTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B1A73DCC280EE4F800AA681F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B1A73DBB280EE3FC00AA681F /* Main.storyboard */,
+				B1A73DC0280EE40300AA681F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B1A73DCD280EE50500AA681F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1A73DBE280EE40300AA681F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A73DBA280EE3FC00AA681F /* ViewController.swift in Sources */,
 				B1A73DB6280EE3FC00AA681F /* AppDelegate.swift in Sources */,
+				B1A73DCF280EE63E00AA681F /* PhonesTableViewController.swift in Sources */,
+				B134380228136FD60041BAD6 /* NetworkManager.swift in Sources */,
+				B1A73DD1280FB9EC00AA681F /* Mobile.swift in Sources */,
+				B134380428137F240041BAD6 /* PhonesTableViewCell.swift in Sources */,
 				B1A73DB8280EE3FC00AA681F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +349,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2HBBQ5KF9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TopMobile/Info.plist;
+				INFOPLIST_FILE = TopMobile/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2HBBQ5KF9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TopMobile/Info.plist;
+				INFOPLIST_FILE = TopMobile/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

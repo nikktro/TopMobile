@@ -27,21 +27,20 @@ class PhonesTableViewController: UITableViewController {
     private func fetchSpecs() {
         NetworkManager.shared.fetchData(url: Link.mobilespecs.rawValue, type: PhoneResponse.self) { data, error in
             
-            if let data = data {
-                self.phones = data.data.phones
-                
-                self.phones.forEach {
-                    NetworkManager.shared.fetchData(url: $0.detail, type: DetailResponse.self) { data, error in
-                        self.details.append(data!)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+            guard let data = data else { return }
+            self.phones = data.data.phones
+            
+            self.phones.forEach {
+                NetworkManager.shared.fetchData(url: $0.detail, type: DetailResponse.self) { data, error in
+                    guard let data = data else { return }
+                    self.details.append(data)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             }
         }
     }
-    
 }
 
 // MARK: - Table view data source

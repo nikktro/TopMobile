@@ -13,10 +13,6 @@ class PhonesTableViewController: UITableViewController {
     private var phones: [Phone] = []
     private var details: [DetailResponse] = []
     
-    private enum Link: String {
-        case mobilespecs = "https://api-mobilespecs.azharimm.site/v2/top-by-interest"
-    }
-    
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()

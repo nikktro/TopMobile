@@ -57,3 +57,7 @@ struct PhoneDetail: Decodable {
     }
     
 }
+
+enum Link: String {
+    case mobilespecs = "https://api-mobilespecs.azharimm.site/v2/top-by-interest"
+}

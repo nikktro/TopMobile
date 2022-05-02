@@ -12,10 +12,12 @@ class PhonesTableViewController: UITableViewController {
     // MARK: - Private Properties
     private var phones: [Phone] = []
     private var details: [DetailResponse] = []
+    private var activityIndicator: UIActivityIndicatorView?
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator = showSpinner(in: tableView)
         fetchSpecs(from: Link.mobilespecs.rawValue)
     }
     
@@ -32,6 +34,7 @@ class PhonesTableViewController: UITableViewController {
                     
                     let indexPath = IndexPath(item: phoneIndex, section: 0)
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                    self.activityIndicator?.stopAnimating()
                 }
             }
         }
@@ -57,4 +60,17 @@ extension PhonesTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+// MARK: - ActivityIndicator
+private func showSpinner(in view: UIView) -> UIActivityIndicatorView {
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    activityIndicator.color = .gray
+    activityIndicator.startAnimating()
+    activityIndicator.center = view.center
+    activityIndicator.hidesWhenStopped = true
+    
+    view.addSubview(activityIndicator)
+    
+    return activityIndicator
 }

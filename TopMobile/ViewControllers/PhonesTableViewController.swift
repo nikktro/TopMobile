@@ -16,34 +16,23 @@ class PhonesTableViewController: UITableViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchSpecs()
+        fetchSpecs(from: Link.mobilespecs.rawValue)
     }
     
     // MARK: - Private Methods
-    private func fetchSpecs() {
-        NetworkManager.shared.fetchData(url: Link.mobilespecs.rawValue, type: PhoneResponse.self) { data, error in
-            
-            guard let data = data else { return }
-            self.phones = data.data.phones
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+    private func fetchSpecs(from url: String?) {
+        NetworkManager.shared.fetchData(from: url, forType: PhoneResponse.self) { phoneResponse in
+            self.phones = phoneResponse.data.phones
+            self.tableView.reloadData()
             
             self.phones.forEach {
-                
-                NetworkManager.shared.fetchData(url: $0.detail, type: DetailResponse.self) { data, error in
+                NetworkManager.shared.fetchData(from: $0.detail, forType: DetailResponse.self) { detailResponse in
+                    guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == detailResponse.data.fullName }) else { return }
+                    self.phones[phoneIndex].thumbnail = detailResponse.data.thumbnail
                     
-                    guard let data = data else { return }
-                    guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == data.data.fullName }) else { return }
-                    self.phones[phoneIndex].thumbnail = data.data.thumbnail
-                    
-                    DispatchQueue.main.async {
-                        let indexPath = IndexPath(item: phoneIndex, section: 0)
-                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                    }
+                    let indexPath = IndexPath(item: phoneIndex, section: 0)
+                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
-                
             }
         }
     }

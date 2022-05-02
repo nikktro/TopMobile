@@ -11,22 +11,23 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func fetchData<T:Decodable>(url: String, type: T.Type, completion: @escaping(T?, Error?) -> Void) {
+    func fetchData<T:Decodable>(from url: String?, forType type: T.Type, with completion: @escaping(T) -> Void) {
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL)?.setScheme("https") else { return }
         
-        guard let url = URL(string: url)?.setScheme("https") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
             
             do {
-                let dataReceived = try JSONDecoder().decode(type, from: data)
-                completion(dataReceived, nil)
+                let dataReceived = try JSONDecoder().decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(dataReceived)
+                }
             } catch let error {
                 print(error.localizedDescription)
-                completion(nil, error)
             }
         }.resume()
     }

@@ -23,12 +23,12 @@ class PhonesTableViewController: UITableViewController {
     
     // MARK: - Private Methods
     private func fetchSpecs(from url: String?) {
-        NetworkManager.shared.fetchData(from: url, forType: PhoneResponse.self) { phoneResponse in
+        NetworkManager.shared.fetchData(from: url, dataType: PhoneResponse.self) { phoneResponse in
             self.phones = phoneResponse.data.phones
             self.tableView.reloadData()
             
             self.phones.forEach {
-                NetworkManager.shared.fetchData(from: $0.detail, forType: DetailResponse.self) { detailResponse in
+                NetworkManager.shared.fetchData(from: $0.detail, dataType: DetailResponse.self) { detailResponse in
                     guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == detailResponse.data.fullName }) else { return }
                     self.phones[phoneIndex].thumbnail = detailResponse.data.thumbnail
                     

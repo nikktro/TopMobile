@@ -16,9 +16,12 @@
 		B1A73DC2280EE40300AA681F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A73DC0280EE40300AA681F /* LaunchScreen.storyboard */; };
 		B1A73DCF280EE63E00AA681F /* PhonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DCE280EE63E00AA681F /* PhonesTableViewController.swift */; };
 		B1A73DD1280FB9EC00AA681F /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A73DD0280FB9EC00AA681F /* Mobile.swift */; };
+		F6AACEED50DD7E7C93CB449E /* Pods_TopMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF1443E283903FCA3CA16F6 /* Pods_TopMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DB54A0E842DABB6D4E822D6 /* Pods-TopMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMobile.debug.xcconfig"; path = "Target Support Files/Pods-TopMobile/Pods-TopMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		8FF1443E283903FCA3CA16F6 /* Pods_TopMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B134380128136FD60041BAD6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B134380328137F240041BAD6 /* PhonesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewCell.swift; sourceTree = "<group>"; };
 		B1A73DB2280EE3FC00AA681F /* TopMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +33,7 @@
 		B1A73DC3280EE40300AA681F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1A73DCE280EE63E00AA681F /* PhonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonesTableViewController.swift; sourceTree = "<group>"; };
 		B1A73DD0280FB9EC00AA681F /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
+		BEBEF15942852E3BEC7F4458 /* Pods-TopMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopMobile.release.xcconfig"; path = "Target Support Files/Pods-TopMobile/Pods-TopMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AACEED50DD7E7C93CB449E /* Pods_TopMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				B1A73DB4280EE3FC00AA681F /* TopMobile */,
 				B1A73DB3280EE3FC00AA681F /* Products */,
+				DDD1AA329CA39E89596B2648 /* Pods */,
+				E95EF90EF73D1BA20D1A6940 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +131,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DDD1AA329CA39E89596B2648 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DB54A0E842DABB6D4E822D6 /* Pods-TopMobile.debug.xcconfig */,
+				BEBEF15942852E3BEC7F4458 /* Pods-TopMobile.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E95EF90EF73D1BA20D1A6940 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FF1443E283903FCA3CA16F6 /* Pods_TopMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1A73DC6280EE40300AA681F /* Build configuration list for PBXNativeTarget "TopMobile" */;
 			buildPhases = (
+				647B59AF85D44DEB09046337 /* [CP] Check Pods Manifest.lock */,
 				B1A73DAE280EE3FC00AA681F /* Sources */,
 				B1A73DAF280EE3FC00AA681F /* Frameworks */,
 				B1A73DB0280EE3FC00AA681F /* Resources */,
+				C15B21531391C3209B87C0D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +216,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		647B59AF85D44DEB09046337 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TopMobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C15B21531391C3209B87C0D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TopMobile/Pods-TopMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TopMobile/Pods-TopMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TopMobile/Pods-TopMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1A73DAE280EE3FC00AA681F /* Sources */ = {
@@ -342,6 +411,7 @@
 		};
 		B1A73DC7280EE40300AA681F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DB54A0E842DABB6D4E822D6 /* Pods-TopMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,6 +440,7 @@
 		};
 		B1A73DC8280EE40300AA681F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEBEF15942852E3BEC7F4458 /* Pods-TopMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

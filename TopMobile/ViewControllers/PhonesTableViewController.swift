@@ -23,15 +23,15 @@ class PhonesTableViewController: UITableViewController {
     
     // MARK: - Private Methods
     private func fetchSpecs(from url: String?) {
-        NetworkManager.shared.fetchData(from: url, dataType: PhoneResponse.self) { phoneResponse in
-            self.phones = phoneResponse.data.phones
+        NetworkManager.shared.fetchPhoneData(from: url) { phoneResponse in
+            self.phones = phoneResponse
             self.tableView.reloadData()
             
             self.phones.forEach {
-                NetworkManager.shared.fetchData(from: $0.detail, dataType: DetailResponse.self) { detailResponse in
-                    guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == detailResponse.data.fullName }) else { return }
-                    self.phones[phoneIndex].thumbnail = detailResponse.data.thumbnail
-                    
+                NetworkManager.shared.fetchDetailData(from: $0.detail) { detailResponse in
+                    guard let phoneIndex = self.phones.firstIndex(where: { $0.phoneName == detailResponse.fullName }) else { return }
+                    self.phones[phoneIndex].thumbnail = detailResponse.thumbnail
+
                     let indexPath = IndexPath(item: phoneIndex, section: 0)
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                     self.activityIndicator?.stopAnimating()

@@ -37,7 +37,9 @@ class NetworkManager {
                         phoneList.append(receivedItem)
                     }
                     
-                    completion(phoneList)
+                    DispatchQueue.main.async {
+                        completion(phoneList)
+                    }
                     
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -68,7 +70,9 @@ class NetworkManager {
                         os: data["os"] as? String ?? "",
                         storage: data["storage"] as? String ?? "")
                     
-                    completion(receivedItem)
+                    DispatchQueue.main.async {
+                        completion(receivedItem)
+                    }
                     
                 case .failure(let error):
                     print(error.localizedDescription)

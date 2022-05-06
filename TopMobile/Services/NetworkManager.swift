@@ -13,8 +13,6 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     func fetchPhoneData(from url: String?, completion: @escaping([Phone]) -> Void) {
-        var phoneList: [Phone] = []
-        
         guard let stringURL = url else { return }
         guard let url = URL(string: stringURL)?.setScheme("https") else { return }
         
@@ -24,21 +22,9 @@ class NetworkManager {
                 switch dataResponse.result {
                     
                 case .success(let value):
-                    guard let phoneResponse = value as? [String: Any] else { return }
-                    guard let data = phoneResponse["data"] as? [String: Any] else { return }
-                    guard let phones = data["phones"] as? [[String: Any]] else { return }
-                    
-                    for phone in phones {
-                        let receivedItem = Phone(
-                            phoneName: phone["phone_name"] as? String ?? "",
-                            slug: phone["slug"] as? String ?? "",
-                            hits: phone["hits"] as? Int ?? 0,
-                            detail: phone["detail"] as? String ?? "")
-                        phoneList.append(receivedItem)
-                    }
-                    
+                    guard let phones = Phone.getPhones(from: value) else { return }
                     DispatchQueue.main.async {
-                        completion(phoneList)
+                        completion(phones)
                     }
                     
                 case .failure(let error):
@@ -57,21 +43,9 @@ class NetworkManager {
                 switch dataResponse.result {
                     
                 case .success(let value):
-                    guard let detailResponse = value as? [String: Any] else { return }
-                    guard let data = detailResponse["data"] as? [String: Any] else { return }
-                    
-                    let receivedItem = PhoneDetail(
-                        brand: data["brand"] as? String ?? "",
-                        phoneName: data["phone_name"] as? String ?? "",
-                        thumbnail: data["thumbnail"] as? String ?? "",
-                        phoneImages: data["phone_images"] as? [String] ?? [""],
-                        releaseDate: data["release_date"] as? String ?? "",
-                        dimension: data["dimension"] as? String ?? "",
-                        os: data["os"] as? String ?? "",
-                        storage: data["storage"] as? String ?? "")
-                    
+                    guard let phoneDetail = PhoneDetail.getPhoneDetail(from: value) else { return }
                     DispatchQueue.main.async {
-                        completion(receivedItem)
+                        completion(phoneDetail)
                     }
                     
                 case .failure(let error):

@@ -11,7 +11,6 @@ class PhonesTableViewController: UITableViewController {
         
     // MARK: - Private Properties
     private var phones: [Phone] = []
-    private var details: [DetailResponse] = []
     private var activityIndicator: UIActivityIndicatorView?
     
     // MARK: - Override Methods

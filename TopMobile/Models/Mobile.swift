@@ -80,5 +80,5 @@ struct PhoneDetail: Decodable {
 }
 
 enum Link: String {
-    case mobilespecs = "https://api-mobilespecs.azharimm.site/v2/top-by-interest"
+    case mobilespecs = "https://filedn.eu/lpG6fv2UFBtue6zfYQg8kf7/TopMobile/mobiles.json"
 }

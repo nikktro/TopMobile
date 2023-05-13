@@ -6,8 +6,8 @@ Mobile phone rating app using public api.
 <br />
 <br />
 Done:
-* Model for parsing jason
-* Parsing jason and displaying data on the screen
+* Model for parsing json
+* Parsing json and displaying data on the screen
 * Work with the network is moved to the NetworkManager class
 * For asynchronous data transfer and error handling for network requests, the Result type is used
 <br />
